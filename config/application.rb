@@ -22,6 +22,13 @@ module JhuCapstone
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    Mongoid.load!('./config/mongoid.yml')
+    # when mongoid gem is added, it becomes the default ORM
+    # for now we'd like to keep ActiveRecord as our default ORM with generators
+    # and we can always supply --orm mongoid to generators in case we need mongoid to kick in
+    config.generators { |g| g.orm :active_record }
+    # config.generators { |g| g.orm :mongoid }
+
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
