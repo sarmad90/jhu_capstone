@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :foos
     resources :bars
     resources :cities
+    resources :states
   end
 
   get :ui, to: 'ui#index'
