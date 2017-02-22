@@ -5,4 +5,7 @@ Rails.application.routes.draw do
     resources :bars
   end
 
+  get :ui, to: 'ui#index'
+  root 'ui#index'
+
 end
