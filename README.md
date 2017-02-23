@@ -9,3 +9,5 @@ ENV['MONGO_HOST'], ENV['MLAB_URI'] for config/mongoid.yml
 
 
 heroku config:set MLAB_URI=mongodb://<dbuser>:<dbpassword>@<dburl> --remote staging
+
+Jim is using Angular 1.5.9 but we didn't provide a specific version to out Gemfile, that's why we're using Angular 1.6. 

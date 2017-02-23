@@ -11,6 +11,18 @@ gem 'puma', '~> 3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-angular-ui-router'
+  gem 'rails-assets-angular-resource'
+end
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
