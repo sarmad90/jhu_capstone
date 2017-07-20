@@ -1,1 +1,19 @@
-Capstone site under construction. Check back soon.
+<!DOCTYPE html>
+<html lang="en" ng-app="jhu_capstone">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag 'jhu_capstone', media: 'all' %>
+    <%= javascript_include_tag 'jhu_capstone' %>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello</h1>
+      <span>From....</span>
+      <div ui-view>
+
+      </div>
+    </div>
+  </body>
+</html>
