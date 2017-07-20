@@ -38,6 +38,12 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
 
+  config.assets.debug = true
+
+   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+   # yet still be able to expire them through the digest params.
+   config.assets.digest = true
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

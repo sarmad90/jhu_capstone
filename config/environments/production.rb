@@ -23,8 +23,8 @@ Rails.application.configure do
   # config.action_controller.asset_host = 'http://assets.example.com'
 
   config.assets.js_compressor = :uglifier
-  config.assets.css_compressor = :sass
-  config.assets.compile = true
+  # config.assets.css_compressor = :sass
+  config.assets.compile = false
   config.assets.digest = true
 
   # Specifies the header that your server uses for sending files.
