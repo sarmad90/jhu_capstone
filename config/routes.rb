@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :states
   end
 
-  get :ui, to: 'ui#index'
+  get '/ui', to: 'ui#index'
+  get '/ui#', to: 'ui#index'
+
   root 'ui#index'
 
 end
