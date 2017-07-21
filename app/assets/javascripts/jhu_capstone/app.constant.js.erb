@@ -5,6 +5,7 @@
     .module("jhu_capstone")
     .constant("jhu_capstone.APP_CONFIG", {
       server_url: "<%= ENV['RAILS_API_URL'] %>",
-      main_page_html: "<%= asset_path('jhu_capstone/pages/main.html') %>"
+      main_page_html: "<%= asset_path('jhu_capstone/pages/main.html') %>",
+      foos_html: "<%= asset_path('jhu_capstone/foos/foos.html') %>",
     });
 })();
