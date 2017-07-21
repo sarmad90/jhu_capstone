@@ -11,3 +11,4 @@
 
 //= require jhu_capstone/foos/foos.module
 //= require jhu_capstone/foos/foos.service
+//= require jhu_capstone/foos/foos.controller
