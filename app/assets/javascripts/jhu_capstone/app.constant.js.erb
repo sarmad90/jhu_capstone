@@ -4,6 +4,7 @@
   angular
     .module("jhu_capstone")
     .constant("jhu_capstone.APP_CONFIG", {
+      server_url: "<%= ENV['RAILS_API_URL'] %>",
       main_page_html: "<%= asset_path('jhu_capstone/pages/main.html') %>"
     });
 })();
