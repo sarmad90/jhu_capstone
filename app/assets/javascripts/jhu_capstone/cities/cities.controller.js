@@ -2,15 +2,15 @@
   "use strict";
 
   angular
-    .module("jhu_capstone.foos")
-    .controller("jhu_capstone.foos.FoosController", FoosController);
+    .module("jhu_capstone.cities")
+    .controller("jhu_capstone.cities.CitiesController", CitiesController);
 
-  FoosController.$inject = ["jhu_capstone.foos.Foo"];
+  CitiesController.$inject = ["jhu_capstone.cities.City"];
 
-  function FoosController(Foo) {
+  function CitiesController(City) {
     var vm = this;
-    vm.foos;
-    vm.foo;
+    vm.cities;
+    vm.city;
     vm.edit = edit;
     vm.create = create;
     vm.update = update;
@@ -21,12 +21,12 @@
     return;
 
     function activate() {
-      newFoo();
-      vm.foos = Foo.query();
+      newCity();
+      vm.cities = City.query();
     };
 
-    function newFoo() {
-      vm.foo = new Foo();
+    function newCity() {
+      vm.city = new City();
     };
 
     function handleError(response) {
@@ -35,21 +35,21 @@
 
     function edit(object) {
       console.log("Selected", object);
-      vm.foo = object;
+      vm.city = object;
     };
 
     function create() {
       //console.log("creating foo", vm.foo);
-      vm.foo.$save()
+      vm.city.$save()
         .then(function(response){
           console.log(response);
-          vm.foos.push(vm.foo);
+          vm.cities.push(vm.city);
         })
         .catch(handleError);
     };
 
     function update() {
-      vm.foo.$update()
+      vm.city.$update()
         .then(function(response){
           console.log(response);
         })
@@ -57,20 +57,19 @@
     };
 
     function remove() {
-      vm.foo.$delete()
+      vm.city.$delete()
         .then(function(response){
           console.log(response);
-          // remove the element from the JS array
-          // removeElement(vm.foos, vm.foo);
-          vm.foos = Foo.query();
+          vm.cities = City.query();
           // replace edit area with prototype instance
-          newFoo();
+          newCity();
         })
         .catch(handleError);
     };
 
     function clearSelection(){
-      vm.foo = new Foo();
+      vm.city = new City();
     };
+
   };
 })();

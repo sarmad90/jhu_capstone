@@ -13,3 +13,8 @@
 //= require jhu_capstone/foos/foos.service
 //= require jhu_capstone/foos/foos.controller
 //= require jhu_capstone/foos/foos.directive
+
+//= require jhu_capstone/cities/cities.module
+//= require jhu_capstone/cities/cities.service
+//= require jhu_capstone/cities/cities.controller
+//= require jhu_capstone/cities/cities.directive

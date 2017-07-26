@@ -1,11 +1,9 @@
 <div>
   <h3>Foos</h3>
-  <span>Yes!</span>
-
   <form>
     <div>
       <label>Name:</label>
-      <input name="name" ng-model="foosVM.foo.name" required="required" />
+      <input name="name" ng-model="foosVM.foo.name" required="required" /> <a href="#"  ng-if="foosVM.foo.id" ng-click="foosVM.clearSelection()">Clear Selection</a>
     </div>
     <button ng-if="!foosVM.foo.id" type="submit" ng-click="foosVM.create()">Create Foo</button>
     <div ng-if="foosVM.foo.id">

@@ -2,6 +2,6 @@
   "use strict";
 
   angular
-    .module("jhu_capstone", ["ui.router", "jhu_capstone.foos"])
+    .module("jhu_capstone", ["ui.router", "jhu_capstone.foos", "jhu_capstone.cities"])
 
 })();
