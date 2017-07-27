@@ -2,6 +2,7 @@ require 'database_cleaner'
 
 shared_context 'db_cleanup' do |active_record_strategy=:truncation|
   before(:all) do
+    DatabaseCleaner[:mongoid].strategy = :truncation
     DatabaseCleaner[:active_record].strategy = active_record_strategy
     DatabaseCleaner.clean_with[:truncation]
   end
