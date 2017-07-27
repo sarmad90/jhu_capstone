@@ -39,6 +39,18 @@ module JhuCapstone
       end
     end
 
+    config.generators do |g|
+      g.test_framework :rspec,
+        model_specs: true,
+        routing_specs: false,
+        controller_specs: false,
+        helper_specs: false,
+        view_specs: false,
+        request_specs: true,
+        policy_specs: false,
+        feature_specs: true
+    end
+
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
