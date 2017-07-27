@@ -11,6 +11,8 @@ gem 'puma', '~> 3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
+gem 'database_cleaner'
+
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -40,6 +42,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'httparty'
   gem 'rspec-rails'
+  gem 'mongoid-rspec'
 end
 
 group :development do
