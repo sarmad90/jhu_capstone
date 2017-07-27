@@ -14,6 +14,10 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+
+require 'mongoid-rspec'
+require_relative 'support/database_cleaner.rb'
+
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
