@@ -12,6 +12,8 @@ gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 
 gem 'database_cleaner'
+gem 'factory_girl_rails'
+gem 'faker'
 
 gem 'sass-rails'
 gem 'uglifier'
