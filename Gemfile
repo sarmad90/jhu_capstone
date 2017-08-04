@@ -45,6 +45,11 @@ group :development, :test do
   gem 'httparty'
   gem 'rspec-rails'
   gem 'mongoid-rspec'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
+  gem 'launchy'
+  gem 'simplecov'
 end
 
 group :development do
