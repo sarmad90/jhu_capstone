@@ -77,7 +77,7 @@ RSpec.describe "Authentication Api", type: :request do
         end
 
         it 'grants access to resource' do
-          get authn_checkme_path, access_tokens
+          jget authn_checkme_path
           expect(response).to have_http_status(:ok)
 
           payload = parsed_body
@@ -87,7 +87,7 @@ RSpec.describe "Authentication Api", type: :request do
 
         it 'grants access to resource multiple times' do
           (1..10).each do |idx|
-            get authn_checkme_path, access_tokens
+            jget authn_checkme_path
             expect(response).to have_http_status(:ok)
           end
         end
