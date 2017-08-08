@@ -16,4 +16,9 @@ module ApiHelper
             headers.merge(access_tokens))
     end
   end
+
+  def signup(registration, status = :ok)
+    post user_registration_path, registration
+    expect(response).to have_http_status(status)
+  end
 end
