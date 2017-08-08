@@ -1,5 +1,7 @@
 require 'mongoid-rspec'
+require 'capybara/rspec'
 require_relative 'support/database_cleaner.rb'
+require_relative 'support/api_helper.rb'
 
 require 'simplecov'
 SimpleCov.start do
@@ -12,6 +14,9 @@ end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include ApiHelper, :type=>:request
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
