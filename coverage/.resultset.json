@@ -1,0 +1,16 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/sarmad/projects/jhu_capstone/app/models/user.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1502177806
+  }
+}
