@@ -20,6 +20,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 
+gem 'devise_token_auth'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

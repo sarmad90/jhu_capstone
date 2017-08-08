@@ -33,8 +33,9 @@ module JhuCapstone
       allow do
         origins "*"
 
-        resource "/api/*",
+        resource "*",
           headers: :any,
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
           methods: [:get, :post, :put, :delete, :options]
       end
     end
