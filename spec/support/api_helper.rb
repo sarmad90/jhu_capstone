@@ -18,7 +18,7 @@ module ApiHelper
   end
 
   def signup(registration, status = :ok)
-    post user_registration_path, registration
+    jpost user_registration_path, registration
     expect(response).to have_http_status(status)
     payload = parsed_body
     if response.ok?
@@ -27,8 +27,19 @@ module ApiHelper
   end
 
   def login(credentials, status = :ok)
-    post user_session_path, credentials.slice(:email, :password)
+    jpost user_session_path, credentials.slice(:email, :password)
     expect(response).to have_http_status(status)
     return response.ok? ? parsed_body['data'] : parsed_body
+  end
+
+  def access_tokens?
+    !response.headers['access-token'].nil? if response
+  end
+
+  def access_tokens
+    if access_tokens?
+      @last_tokens = ['uid', 'client', 'token-type', 'access-token'].inject({}) { |h,k| h[k] = response.headers[k]; h }
+    end
+    @last_tokens || {}
   end
 end
