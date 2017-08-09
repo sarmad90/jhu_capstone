@@ -37,9 +37,6 @@ class ImagesController < ApplicationController
   end
 
   private
-    def default_format_json
-      request.format = "json"
-    end
     # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :things
   resources :images
   get 'authn/whoami'
 

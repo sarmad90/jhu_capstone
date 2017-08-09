@@ -5,6 +5,10 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from Mongoid::Errors::DocumentNotFound, with: :record_not_found
 
+  def default_format_json
+    request.format = "json"
+  end
+
   protected
     def record_not_found(exception)
       payload = {
