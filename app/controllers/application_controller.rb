@@ -23,7 +23,7 @@ class ApplicationController < ActionController::API
       Rails.logger.debug exception.message
     end
 
-    def missing_parameter
+    def missing_parameter(exception)
       payload = {
         errors: { full_messages: [exception.message] }
       }

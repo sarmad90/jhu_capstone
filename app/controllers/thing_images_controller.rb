@@ -60,7 +60,7 @@ class ThingImagesController < ApplicationController
     end
 
     def get_thing_image
-      @thing_image = ||= ThingImage.find(params[:id])
+      @thing_image ||= ThingImage.find(params[:id])
     end
 
     def thing_image_create_params
