@@ -5,7 +5,7 @@
     .module("jhu_capstone.cities")
     .factory("jhu_capstone.cities.City", CityFactory);
 
-    CityFactory.$inject = ["$resource", "jhu_capstone.APP_CONFIG"];
+    CityFactory.$inject = ["$resource", "jhu_capstone.config.APP_CONFIG"];
 
     function CityFactory($resource, APP_CONFIG) {
       return $resource(APP_CONFIG.server_url + "/api/cities/:id",

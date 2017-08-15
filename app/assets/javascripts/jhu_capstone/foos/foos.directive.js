@@ -5,7 +5,7 @@
     .module("jhu_capstone.foos")
     .directive("sdFoos", FoosDirective);
 
-  FoosDirective.$inject = ["jhu_capstone.APP_CONFIG"];
+  FoosDirective.$inject = ["jhu_capstone.config.APP_CONFIG"];
 
   function FoosDirective(APP_CONFIG) {
     var directive = {

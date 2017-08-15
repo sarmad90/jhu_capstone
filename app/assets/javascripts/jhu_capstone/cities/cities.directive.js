@@ -5,7 +5,7 @@
     .module("jhu_capstone.cities")
     .directive("sdCities", CitiesDirective);
 
-  CitiesDirective.$inject = ["jhu_capstone.APP_CONFIG"];
+  CitiesDirective.$inject = ["jhu_capstone.config.APP_CONFIG"];
 
   function CitiesDirective(APP_CONFIG) {
     var directive = {

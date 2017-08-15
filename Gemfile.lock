@@ -153,6 +153,8 @@ GEM
       railties (= 5.0.1)
       sprockets-rails (>= 2.0.0)
     rails-assets-angular (1.6.5)
+    rails-assets-angular-cookie (4.1.0)
+      rails-assets-angular
     rails-assets-angular-resource (1.6.5)
       rails-assets-angular (= 1.6.5)
     rails-assets-angular-ui-router (1.0.5)
@@ -160,6 +162,9 @@ GEM
     rails-assets-bootstrap (3.3.7)
       rails-assets-jquery (>= 1.9.1, < 4)
     rails-assets-jquery (3.2.1)
+    rails-assets-ng-token-auth (0.0.27)
+      rails-assets-angular (>= 1.2.0)
+      rails-assets-angular-cookie (>= 4.0.6)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -270,9 +275,11 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-assets-angular!
+  rails-assets-angular-cookie!
   rails-assets-angular-resource!
   rails-assets-angular-ui-router!
   rails-assets-bootstrap!
+  rails-assets-ng-token-auth!
   rspec-rails
   sass-rails
   selenium-webdriver

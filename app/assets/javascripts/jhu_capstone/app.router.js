@@ -7,7 +7,7 @@
 
   RouterFunction.$inject = ["$stateProvider",
                             "$urlRouterProvider",
-                            "jhu_capstone.APP_CONFIG"];
+                            "jhu_capstone.config.APP_CONFIG"];
 
   function RouterFunction($stateProvider, $urlRouterProvider, APP_CONFIG) {
     $stateProvider
