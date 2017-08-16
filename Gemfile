@@ -34,10 +34,12 @@ gem 'devise_token_auth'
 gem 'rack-cors'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
-  gem 'rails-assets-angular'
-  gem 'rails-assets-angular-ui-router'
-  gem 'rails-assets-angular-resource'
+  gem 'rails-assets-bootstrap', '3.3.7'
+  gem 'rails-assets-angular', '1.5.9'
+  gem 'rails-assets-angular-ui-router', '0.3.2'
+  gem 'rails-assets-angular-resource', '1.5.9'
+  gem 'rails-assets-ng-token-auth'
+  gem 'rails-assets-angular-cookie'
 end
 
 

@@ -2,6 +2,58 @@ require 'mongoid-rspec'
 require 'capybara/rspec'
 require_relative 'support/database_cleaner.rb'
 require_relative 'support/api_helper.rb'
+require_relative 'support/ui_helper.rb'
+
+browser=:chrome
+Capybara.register_driver :selenium do |app|
+  if ENV['SELENIUM_REMOTE_HOST']
+    # https://medium.com/@georgediaz/docker-container-for-running-browser-tests-9b234e68f83c#.l7i6yay23
+    # use container's shell to find the docker ip address
+    docker_ip = %x(/sbin/ip route|awk '/default/ { print $3 }').strip
+    Capybara.app_host = "http://#{docker_ip}:#{ENV['APP_PORT']}"
+    puts "Capybara.app_host=#{Capybara.app_host}"
+    Capybara.server_host = "0.0.0.0"
+    Capybara.server_port = ENV['APP_PORT']
+    Capybara::Selenium::Driver.new( app,
+        :browser=>:remote,
+        :url=>"http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
+        :desired_capabilities=>:chrome)
+  elsif browser == :chrome
+    if ENV['CHROMEDRIVER_BINARY_PATH']
+      #set CHROMEDRIVER_BINARY_PATH=c:\Program Files\chromedriver_win32\chromedriver.exe
+      Selenium::WebDriver::Chrome.driver_path=ENV['CHROMEDRIVER_BINARY_PATH']
+    end
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  else
+    if ENV['FIREFOX_BINARY_PATH']
+      require 'selenium/webdriver'
+      #set FIREFOX_BINARY_PATH=c:\Program Files\Mozilla Firefox\firefox.exe
+      Selenium::WebDriver::Firefox::Binary.path=ENV['FIREFOX_BINARY_PATH']
+    end
+    #http://stackoverflow.com/questions/20009266/selenium-testing-with-geolocate-firefox-keeps-turning-it-off
+    profile = Selenium::WebDriver::Firefox::Profile.new
+    profile["geo.prompt.testing"]=true
+    profile["geo.prompt.testing.allow"]=true
+    Capybara::Selenium::Driver.new(app, :browser=>:firefox, :profile=>profile)
+  end
+end
+
+require 'capybara/poltergeist'
+# Set the default driver
+Capybara.configure do |config|
+  config.default_driver = :rack_test
+  #used when :js=>true
+  config.javascript_driver = :poltergeist
+end
+#Capybara.javascript_driver = :selenium
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new( app,
+    js_errors: false,
+    phantomjs_logger: StringIO.new,
+#    logger: STDERR
+    )
+end
 
 require 'simplecov'
 SimpleCov.start do
@@ -15,7 +67,8 @@ end
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
-  config.include ApiHelper, :type=>:request
+  config.include ApiHelper, type: :request
+  config.include UiHelper, type: :feature
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
