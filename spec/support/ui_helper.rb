@@ -20,4 +20,13 @@ module UiHelper
       expect(page).to have_button('Sign Up')
     end
   end
+
+  def login(user_props)
+    find("#navbar-loginlabel", text: "Login").click
+    within("#login-form") do
+      fill_in("login_email", with: user_props[:email])
+      fill_in("login_password", with: user_props[:password])
+      click_button("Login")
+    end
+  end
 end
