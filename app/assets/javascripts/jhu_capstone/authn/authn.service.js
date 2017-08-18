@@ -15,10 +15,16 @@
     service.getCurrentUserName = getCurrentUserName;
     service.getCurrentUser = getCurrentUser;
     service.login = login;
-    // service.logout = logout;
+    service.logout = logout;
 
+    activate();
     return;
 
+    function activate() {
+      $auth.validateUser().then(function(user) {
+        service.user = user;
+      });
+    };
     function signup(registration) {
       return $auth.submitRegistration(registration);
     }
@@ -30,6 +36,20 @@
     }
     function getCurrentUser() {
       return service.user;
+    }
+    function logout() {
+      console.log("logout");
+      var result = $auth.signOut();
+      result.then(function(response) {
+        service.user = null;
+        console.log("Logout complete", response);
+      },
+      function(response) {
+        service.user = null;
+        console.log("Logout failure", response);
+        alert(response.status + ":" + response.statusText);
+      });
+      return result;
     }
     function login(credentials) {
       console.log("login", credentials.email);

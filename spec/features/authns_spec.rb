@@ -87,11 +87,6 @@ RSpec.feature 'Authns', type: :feature, js: true do
 
     context 'valid user login' do
       scenario 'closes form and displays current user name' do
-        # using_wait_time 5 do
-        #   expect(page).to have_no_css("#login-form")
-        # end
-        # expect(page).to have_css("#navbar-loginlabel", text: /#{user_props[:name]}/)
-        # expect(page).to have_no_css("#logout-form") #dropdown goes aways
         expect(page).to have_css("#navbar-loginlabel", text: /#{user_props[:name]}/)
         expect(page).to have_no_css("#login_form")
         expect(page).to have_no_css("#logout_form")
@@ -113,7 +108,26 @@ RSpec.feature 'Authns', type: :feature, js: true do
   end
 
   feature 'logout' do
-    scenario 'closes form and removes user name'
+    backgroud(:each) do
+      signup user_props
+      login user_props
+    end
+    scenario 'closes form and removes user name' do
+      login_criteria = ["#navbar-loginlabel", text: "Login"]
+      user_name_criteria = ["#navbar-loginlabel", text: /#{user_props[:name]}/]
+      user_id_criteria = ["#user_id", visible: false]
+
+      expect(page).to have_no_css(*login_criteria)
+      expect(page).to have_css(*user_name_criteria)
+      expect(page).to have_css(*user_id_criteria)
+
+      #logout
+      find("#navbar-loginlabel").click
+      find_button("Logout").click
+      #dropdown goes away
+      expect(page).to have_no_css("#login-form")
+      expect(page).to have_no_css("#logout-form")
+    end
     scenario 'can no longer access authenticated resources'
   end
 end
