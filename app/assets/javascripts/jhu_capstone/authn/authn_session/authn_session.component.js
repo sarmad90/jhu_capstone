@@ -30,10 +30,16 @@
     return;
     //////
     function login() {
+      $scope.login_form.$setPristine();
       console.log("login");
-      Authn.login(vm.loginForm).then(function(){
-        $("#login-dropdown").removeClass("open");
-      })
+      Authn.login(vm.loginForm).then(
+        function(){
+          $("#login-dropdown").removeClass("open");
+        },
+        function(response) {
+          vm.loginForm["errors"] = response.errors;
+        }
+      )
     }
     function logout() {
       Authn.logout().then(function() {
