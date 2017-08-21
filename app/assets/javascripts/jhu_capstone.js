@@ -15,8 +15,11 @@
 //= require jhu_capstone/authn/authn.module
 //= require jhu_capstone/authn/authn.config
 //= require jhu_capstone/authn/authn.service
+//= require jhu_capstone/authn/whoami.service
+//= require jhu_capstone/authn/checkme.service
 //= require jhu_capstone/authn/signup/signup.component
 //= require jhu_capstone/authn/authn_session/authn_session.component
+//= require jhu_capstone/authn/authn_check/authn_check.directive
 
 //= require jhu_capstone/layout/layout.module
 //= require jhu_capstone/layout/navbar/navbar.component
