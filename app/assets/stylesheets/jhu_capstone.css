@@ -3,4 +3,5 @@
 *= require bootstrap
 *= require jhu_capstone/layout
 *= require jhu_capstone/authn
+*= require jhu_capstone/subjects
 */

@@ -33,3 +33,7 @@
 //= require jhu_capstone/cities/cities.service
 //= require jhu_capstone/cities/cities.controller
 //= require jhu_capstone/cities/cities.directive
+
+//= require jhu_capstone/subjects/subjects.module
+//= require jhu_capstone/subjects/images/images.service
+//= require jhu_capstone/subjects/images/images.component
