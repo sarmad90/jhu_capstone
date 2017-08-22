@@ -37,3 +37,4 @@
 //= require jhu_capstone/subjects/subjects.module
 //= require jhu_capstone/subjects/images/images.service
 //= require jhu_capstone/subjects/images/images.component
+//= require jhu_capstone/subjects/images/images_authz.directive

@@ -6,12 +6,16 @@
     .component("sdImageSelector", {
       templateUrl: imageSelectorTemplateUrl,
       controller: ImageSelectorController,
-      bindings: {},
+      bindings: {
+        authz: "<"
+      },
     })
     .component("sdImageEditor", {
       templateUrl: imageEditorTemplateUrl,
       controller: ImageEditorController,
-      bindings: {},
+      bindings: {
+        authz: "<"
+      },
     });
 
   imageSelectorTemplateUrl.$inject = ["jhu_capstone.config.APP_CONFIG"];
